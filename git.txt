@@ -1,0 +1,77 @@
+GIT VERSION
+>>git --version
+
+INITIALIZE GIT(START GIT )
+>>git init
+
+ADD FILE IN GIT STAGAING ENV.
+>>git add index(filename).html
+>>git add .(for adding all the files in folder)
+		OR
+>>git add --all(add deleted file also if they are in staging)
+
+Committing first time need to register
+>>git config --global user.email "ahanda205@gmail.com"
+>>git config --global user.name "AAKASH HANDA"
+
+COMMITTING TO LIVE ENV
+>>git commit -m "version 1"  here -m is for message
+
+LOGGING THE RESULT
+>>git log
+
+RECOVER DELETED FILE
+>>git checkout index.html(name of file)
+
+INCASE WANT TO DELETE FILE AND PUSH TO PRODUCTION(UNDO)
+WE NEED TO DELETE FILE AND RUN
+>>git add about.html(file need to delete)
+			OR
+>>git rm about.html
+
+INCASE WANT TO RECOVER FILE AND PUSH BACK TO STAGING
+WE NEED TO DELETE FILE AND RUN
+>>git reset HEAD about.html(file need to push back)
+
+GO TO PARTICLUAR COMMIT POINT WHERE
+WE HAD DID CERTAIN CHANGES
+>>git log
+>>git checkout 2bhjv4jmbkjbu4i(hash of commit file)
+
+GIT WORK ON BRANCH METHOD
+TO VIEW DIFF BRANCH
+>> git branch (when we run above command it made new branch)
+
+TO TRIVERSE B/W BRANCH
+>>git checkout master(branch name) 
+
+GO BACK TO BRANCH WHERE WE MODIFIED THING
+>>git branch <name-of-new branch> 1ac9996 (hash which is generated 
+											while checkout to new branch)
+
+CREATE NEW BRANCH
+>>git branch app1 (name of branch)
+
+IF WE WANT TO MERGE CHANGES OF DIFF BRANCH INTO MAIN OR OTHER
+FIRST GO TO BRANCH IN WHICH U WANT TO MERGE
+>>git checkout msater (suppose want to merge in this branch)
+>>git merge app1(merge app1 branch code with master branch)
+
+TO CHANGE THE NAME OF BRANCH
+>>git branch -m app1 app01 (first old name thn new name)
+
+DELETE SOME BRANCH
+>>git branch -D app1(name of branch need to delete)
+
+PUSH CODE IN LIVE DIRECTORY
+>>git init
+>>git remote add origin https://github.com/Aakashdeveloper/hello-world.git
+>>git push -u origin master
+
+CLONE A REPOSITORY TO LOCAL FOLDER
+>>git clone https://github.com/YOUR-USERNAME/Spoon-Knife 
+
+ADD CHANGE IN REPO
+GO TO REPO FOLDER
+>>git remote -v (You'll see the current configured remote repository for your fork)
+>>git remote add upstream https://github.com/octocat/Spoon-Knife.git
