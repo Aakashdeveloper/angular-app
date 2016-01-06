@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<!---->
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+		<script type="text/javascript" src="angular.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</head>
+	<body ng-controller="StoreController as store">
+		
+		<!--section ng-repeat="people in store.products" ng-init="tab = 1">
+		<em class="pull-right">SALARY</em>
+			
+			<li class="list-group-item row" >
+				<h3 class="span4">
+					{{people.name}}
+					
+					<em class="pull-right">SALARY{{people.sal | currency}}</em>
+					<img class="center-block" ng-src="{{people.images[0].full}}"/>
+					
+				</h3>
+			</li>
+			<ul class="nav nav-pills">
+				<li ng-class="{active:tab ===1}"><a href ng-click="tab =1">Description</a></li>
+				<li ng-class="{active:tab ===2}"><a href ng-click="tab =2">Specification</a></li>
+				<li ng-class="{active:tab ===3 }"><a href ng-click="tab =3">Reviews</a></li>
+			</ul>
+			{{tab}}
+			<div class="panel" ng-show="tab === 1">
+				<p>{{people.desc}}</p>
+			</div>
+			<div class="panel" ng-show="tab === 2">
+				<p>NOne yet</p>
+			</div>
+			<div class="panel" ng-show="tab === 3">
+				<p>None yet</p>
+			</div>
+		</section-->
+		<!-- with new controller------------>
+		<section ng-controller="PanelController as panel">
+		<em class="pull-right">SALARY</em>
+			
+			<li class="list-group-item row" >
+				<h3 class="span4">
+					{{people.name}}
+					
+					<em class="pull-right">SALARY{{people.sal | currency}}</em>
+					<img class="center-block" ng-src="{{people.images[0].full}}"/>
+					
+				</h3>
+			</li>
+			<ul class="nav nav-pills">
+				<li ng-class="{active: panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Description</a></li>
+				<li ng-class="{active: panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Specification</a></li>
+				<li ng-class="{active: panel.isSelected(3)}"><a href ng-click="panel.selectTab(3)">Reviews</a></li>
+			</ul>
+			{{tab}}
+			<div class="panel" ng-show="panel.isSelected(1)" ng-repeat="people in store.products">
+				<p>{{people.desc}}</p>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(2)">
+				<p>NOne yet</p>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(3)">
+				<p>None yet</p>
+			</div>
+		</section>
+		
+	</body>
+</html>

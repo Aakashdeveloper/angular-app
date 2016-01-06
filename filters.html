@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<!--use of filter after "|" different filter area
+> date:'MM/dd/yyyy @h:mma'
+>uppercase
+>lowercase
+>limitTo:5 it limit showing data
+>orderBy:'fieldname'-->
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+		<script type="text/javascript" src="angular.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</head>
+	<body ng-controller="StoreController as store">
+		<ul class="list-group container">NAME
+			
+			<em class="pull-right">SALARY</em>
+			
+			<li class="list-group-item row" ng-repeat="people in store.products | orderBy:'name'">
+				<h3 class="span4">
+					{{people.name}}
+					
+					<em class="pull-right">SALARY{{people.sal | currency}}</em>
+					<img class="center-block" ng-src="{{people.images[0].full}}"/>
+					
+				</h3>
+			</li>
+		</ul>
+	</body>
+</html>

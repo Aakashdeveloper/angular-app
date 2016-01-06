@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+		<script type="text/javascript" src="angular.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</head>
+	<body ng-controller="StoreController as store">
+		
+		<div ng-repeat="people in store.products">
+			<h1>Name:{{people.name}}</h1>
+			<h1>Tech:{{people.tech}}</h1>
+			<h1>Exp:{{people.exp}}</h1>
+			<!--this help to hide or show button depends upon "canWork property of object-->
+			<button ng-show="people.canWork">Send resume</button>
+		</div>
+	</body>
+</html>
