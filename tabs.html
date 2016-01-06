@@ -8,7 +8,7 @@
 	</head>
 	<body ng-controller="StoreController as store">
 		
-		<!--section ng-repeat="people in store.products" ng-init="tab = 1">
+		<section ng-repeat="people in store.products" ng-init="tab = 1">
 		<em class="pull-right">SALARY</em>
 			
 			<li class="list-group-item row" >
@@ -35,9 +35,9 @@
 			<div class="panel" ng-show="tab === 3">
 				<p>None yet</p>
 			</div>
-		</section-->
+		</section>
 		<!-- with new controller------------>
-		<section ng-controller="PanelController as panel">
+		<!--section ng-controller="PanelController as panel">
 		<em class="pull-right">SALARY</em>
 			
 			<li class="list-group-item row" >
@@ -64,7 +64,7 @@
 			<div class="panel" ng-show="panel.isSelected(3)">
 				<p>None yet</p>
 			</div>
-		</section>
+		</section-->
 		
 	</body>
 </html>

@@ -1,0 +1,57 @@
+ <html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="valid.css"/>
+		
+		<script type="text/javascript" src="angular.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</head>
+	<body ng-controller="StoreController as store">
+		
+		<section ng-repeat="people in store.products" ng-init="tab = 1">
+		<em class="pull-right">SALARY</em>
+			
+			<li class="list-group-item row" >
+				<h3 class="span4">
+					{{people.name}}
+					
+					<em class="pull-right">SALARY{{people.sal | currency}}</em>
+					<img class="center-block" ng-src="{{people.images[0].full}}"/>
+					
+				</h3>
+			</li>
+			<ul class="nav nav-pills">
+				<li ng-class="{active:tab ===1}"><a href ng-click="tab =1">Description</a></li>
+				<li ng-class="{active:tab ===2}"><a href ng-click="tab =2">Specification</a></li>
+				<li ng-class="{active:tab ===3 }"><a href ng-click="tab =3">Reviews</a></li>
+			</ul>
+			{{tab}}
+			<div class="panel" ng-show="tab === 1">
+				<p>{{people.desc}}</p>
+			</div>
+			<div class="panel" ng-show="tab === 2">
+				<p>NOne yet</p>
+			</div>
+			<li class="list-group-item">
+				<div class="panel" ng-show="tab === 3">
+					<h4> Reviews </h4>
+					<blockquote ng-repeat="review in people.reviews">
+						<cite>by:{{review.author}}</cite>
+						<cite>by:{{review.body}}</cite>
+					</blockquote>
+					<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(people)" novalidate>
+						<blockquote>
+							{{reviewCtrl.review.body}}
+							<cite>by: {{reviewCtrl.review.author}}</cite> 
+						</blockquote>
+					    <textarea ng-model="reviewCtrl.review.body" required ></textarea>
+						<label>by:</label>
+						<input ng-model="reviewCtrl.review.author" type="email" required/>
+						<div> reviewForm is {{reviewForm.$valid}}</div>
+						<input type="submit" value="Submit"/>
+					</form>
+				</div>	
+			</li>
+			
+		</section>
+		</body>
